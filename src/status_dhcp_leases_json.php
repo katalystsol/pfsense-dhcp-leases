@@ -278,4 +278,5 @@ if ($_REQUEST['order']) {
     usort($leases, "leasecmp");
 }
 
+header('Content-Type: application/json');
 echo json_encode($leases);
