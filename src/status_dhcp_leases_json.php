@@ -33,7 +33,13 @@
 ##|*MATCH=status_dhcp_leases.php*
 ##|-PRIV
 
-require_once("guiconfig.inc");
+// TODO Temporary login procedure. Need to use external config to set this key / token
+$key = 'myPfSense';
+if ($_GET['key'] != $key) {
+    die("Invalid Request");
+}
+
+//require_once("guiconfig.inc"); // This contains auth bit that we do not want to use along with other unneeded gui functions...
 require_once("config.inc");
 
 $pgtitle = array(gettext("Status"), gettext("DHCP Leases"));
